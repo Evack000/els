@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh-CN" >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StudentManagement</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style type="text/css">
+        td, th {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3 style="text-align: center">StudentList</h3>
+    <table border="1" class="table table-bordered table-hover">
+        <tr class="success">
+            <th>StudentID</th>
+            <th>StudentName</th>
+            <th>Training</th>
+        </tr>
+        <tr th:each="student:${students}">
+            <td th:text="${student.getStuID()}"></td>
+            <td th:text="${student.getStuName()}"></td>
+            <td th:text="${student.getTraining()}"></td>
+        </tr>
+		
+    </table>
+    <form action="" th:action="@{/reportGenerator}" method="post">
+     StudentName:<input type="stuName" name="stuName">
+     <input type="submit" value="Generate the report.">
+    </form>
+</div>
+</body>
+</html>
